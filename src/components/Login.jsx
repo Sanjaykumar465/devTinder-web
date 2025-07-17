@@ -1,22 +1,29 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addUser } from "../Utils/userSlice";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../Utils/constants";
 
 const Login = () => {
-  const [email, setEmailId] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmailId] = useState("sanjay@gmail.com");
+  const [password, setPassword] = useState("Sanjay@123");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:7777/login",
+        BASE_URL + "/login",
         {
           email,
           password,
         },
         { withCredentials: true }
       );
-      console.log(res);
+      dispatch(addUser(res.data));
+      return navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -59,7 +66,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="mt-2 w-full h-11 rounded-full text-white bg-red-400 hover:opacity-90 transition-opacity"
+          className="mt-2 w-full h-11 rounded-full text-white bg-red-400 hover:opacity-90 transition-opacity cursor-pointer"
           onClick={handleLogin}
         >
           Login
