@@ -33,7 +33,7 @@ const Login = () => {
     <div className="flex justify-center my-10 ">
       <form
         className="max-w-96 w-full text-center  rounded-2xl px-8 bg-base-300"
-        // onSubmit={handleLogin}
+        onSubmit={handleLogin}
       >
         <h1 className="text-white text-3xl mt-10 font-medium">Login</h1>
         <p className="text-gray-500 text-sm mt-2">Please sign in to continue</p>
@@ -67,7 +67,7 @@ const Login = () => {
         <button
           type="submit"
           className="mt-2 w-full h-11 rounded-full text-white bg-red-400 hover:opacity-90 transition-opacity cursor-pointer"
-          onClick={handleLogin}
+          // onClick={handleLogin}
         >
           Login
         </button>
