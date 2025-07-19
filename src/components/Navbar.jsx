@@ -7,14 +7,14 @@ import { removeuser } from "../Utils/userSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
-  const dispstch = useDispatch();
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       await axios.post(BASE_URL + "/logout", {}, { withCredentials: true });
-      dispstch(removeuser());
-      return navigate("/login")
+      dispatch(removeuser());
+      navigate("/login");
     } catch (err) {
       console.error(err);
     }
@@ -27,7 +27,8 @@ const Navbar = () => {
           🧑‍💻devTinder
         </Link>
       </div>
-      {user && (
+
+      {user !== null && (
         <div className="flex gap-2">
           <div className="form-control">Welcome, {user.firstName}</div>
           <div className="dropdown dropdown-end mx-5 flex ">
