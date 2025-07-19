@@ -6,7 +6,7 @@ import { clearFeed } from "../Utils/feedSlice"
 import { BASE_URL } from "../Utils/constants";
 
 const UserCard = ({ user }) => {
-  const { _id, firstName, lastName, photoUrl, age, gender, about, skills } = user;
+  const { _id, firstName, lastName, photoUrl, age, gender, bio, skills } = user;
   const dispatch = useDispatch();
 
   const handleSendRequest = async (status, userId) => {
@@ -55,12 +55,12 @@ const UserCard = ({ user }) => {
           )}
         </div>
 
-        {/* About Section */}
+        {/* bio Section */}
         <div className="relative mb-6 mx-auto max-w-md">
           <div className="absolute -inset-1 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg blur opacity-75"></div>
           <p className="relative p-4 text-gray-700 leading-relaxed bg-white bg-opacity-70 rounded-lg backdrop-blur-sm text-sm md:text-base">
-            <span className="font-semibold text-purple-600">About:</span>{" "}
-            {about || "No description provided."}
+            <span className="font-semibold text-purple-600">bio:</span>{" "}
+            {bio || "No description provided."}
           </p>
         </div>
 
