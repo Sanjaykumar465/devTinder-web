@@ -17,6 +17,8 @@ function App() {
               <Route path="/" element={<Feed />} />
               <Route path="login" element={<Login />} />
               <Route path="profile" element={<Profile />} />
+               <Route path="connections" element={<Profile />} />
+                <Route path="requests" element={<Profile />} />
             </Route>
           </Routes>
         </BrowserRouter>

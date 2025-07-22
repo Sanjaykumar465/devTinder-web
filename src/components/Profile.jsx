@@ -1,7 +1,12 @@
 import React from "react";
+import EditProfile from "./EditProfile";
 
 const Profile = () => {
-  return <div>fghj</div>;
+  return (
+    <div>
+      <EditProfile />
+    </div>
+  );
 };
 
 export default Profile;

@@ -3,7 +3,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../Utils/constants";
-import { removeuser } from "../Utils/userSlice";
+import { removeuser } from "../utils/userSlice";
+
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);

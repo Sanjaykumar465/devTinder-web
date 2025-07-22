@@ -2,6 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
+    <div className="my-50">
     <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10 fixed bottom-0">
       <nav>
         <h6 className="footer-title">Services</h6>
@@ -56,6 +57,7 @@ const Footer = () => {
         </div>
       </nav>
     </footer>
+    </div>
   );
 };
 
