@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../Utils/constants";
 import { removeUser } from "../Utils/userSlice";
 
-
 const Navbar = () => {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
@@ -54,6 +53,9 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/connections">Connections</Link>
+              </li>
+              <li>
+                <Link to="/request">Connection Requests</Link>
               </li>
               <li>
                 <a onClick={handleLogout}>Logout</a>

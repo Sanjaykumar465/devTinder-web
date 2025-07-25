@@ -7,6 +7,7 @@ import Feed from "./components/Feed";
 import Profile from "./components/Profile";
 import Connections from "./components/Connections";
 import ProtectedRoute from "./components/ProtectedRoute"; // Add this
+import Requests from "./components/Requests";
 
 function App() {
   return (
@@ -15,19 +16,16 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route path="/login" element={<Login />} />
-          
+
           {/* Protected routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Body />}>
               <Route index element={<Feed />} />
               <Route path="profile" element={<Profile />} />
               <Route path="connections" element={<Connections />} />
-              <Route path="requests" element={<Profile />} />
+              <Route path="request" element={<Requests />} />
             </Route>
           </Route>
-          
-          {/* Redirect unmatched routes */}
-          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
     </Provider>
