@@ -8,6 +8,7 @@ import { BASE_URL } from "../Utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 
+
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,6 +20,8 @@ const Body = () => {
       const res = await axios.get(BASE_URL + "/profile/view", {
         withCredentials: true,
       });
+      console.log("Response page"+res);
+      
       dispatch(addUser(res.data));
     } catch (err) {
       if (err.status === 401) {
