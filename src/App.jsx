@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import Connections from "./components/Connections";
 import ProtectedRoute from "./components/ProtectedRoute"; // Add this
 import Requests from "./components/Requests";
+import SignUp from "./components/signUp";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="connections" element={<Connections />} />
               <Route path="request" element={<Requests />} />
+              <Route path="signup" element={<SignUp />} />
             </Route>
           </Route>
         </Routes>
