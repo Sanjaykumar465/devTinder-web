@@ -203,8 +203,8 @@ const EditProfile = ({ user = {} }) => {
                 className="w-full bg-gray-700/50 px-4 py-3 rounded-lg border border-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white appearance-none"
               >
                 <option value="" className="bg-gray-800 text-gray-300">Select gender</option>
-                <option value="male" className="bg-gray-800 text-white">Male</option>
-                <option value="female" className="bg-gray-800 text-white">Female</option>
+                <option value="male" className="bg-gray-800 text-white">male</option>
+                <option value="female" className="bg-gray-800 text-white">female</option>
                 <option value="other" className="bg-gray-800 text-white">Other</option>
               </select>
             </div>

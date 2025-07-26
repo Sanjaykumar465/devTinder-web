@@ -1,6 +1,5 @@
-// Feed.js
-import axios from "axios";
 
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../Utils/feedSlice";
 import { useEffect } from "react";
@@ -25,6 +24,13 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
+
+  // Auto-fetch more users when feed is running low
+  useEffect(() => {
+    if (feed && feed.length <= 1) {
+      getFeed();
+    }
+  }, [feed]);
 
   if (!feed) return <p className="text-center mt-10 text-gray-500">Loading...</p>;
 
