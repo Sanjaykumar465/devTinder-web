@@ -44,3 +44,9 @@ const handleSubmit = async (e) => {
     }
   }
 };
+
+
+
+
+
+ssh -i "devTinder-secret.pem" ubuntu@ec2-13-48-42-46.eu-north-1.compute.amazonaws.com
