@@ -252,8 +252,8 @@ const EditProfile = ({ user = {} }) => {
                   className="w-full bg-slate-700/60 backdrop-blur-sm px-3 sm:px-4 py-2.5 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl border border-slate-600 focus:ring-2 focus:ring-violet-500 focus:border-transparent text-white appearance-none text-sm sm:text-base transition-all duration-300 hover:bg-slate-700/80 cursor-pointer"
                 >
                   <option value="" className="bg-slate-800 text-slate-300">Select gender</option>
-                  <option value="male" className="bg-slate-800 text-white">Male</option>
-                  <option value="female" className="bg-slate-800 text-white">Female</option>
+                  <option value="male" className="bg-slate-800 text-white">male</option>
+                  <option value="female" className="bg-slate-800 text-white">female</option>
                   <option value="other" className="bg-slate-800 text-white">Other</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
