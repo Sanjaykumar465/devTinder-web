@@ -29,11 +29,10 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 shadow-xl border-b border-purple-500/20 sticky top-0 z-50 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-14 sm:h-16 lg:h-18">
-          
           {/* Logo Section */}
           <div className="flex items-center flex-shrink-0">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="text-white text-lg sm:text-xl lg:text-2xl font-bold hover:text-purple-300 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
             >
               <span className="text-2xl sm:text-3xl">🧑‍💻</span>
@@ -53,7 +52,12 @@ const Navbar = () => {
                 {/* Welcome Message - Hidden on smaller screens */}
                 <div className="hidden lg:flex items-center text-gray-300 text-sm lg:text-base">
                   <span className="mr-2">👋</span>
-                  <span>Welcome, <span className="text-purple-300 font-medium">{user.firstName}</span></span>
+                  <span>
+                    Welcome,{" "}
+                    <span className="text-purple-300 font-medium">
+                      {user.firstName}
+                    </span>
+                  </span>
                 </div>
 
                 {/* Navigation Links */}
@@ -89,9 +93,9 @@ const Navbar = () => {
                       className="bg-gray-800 rounded-full p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500 transition-all duration-200 hover:scale-110"
                     >
                       <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full overflow-hidden border-2 border-transparent group-hover:border-purple-400 transition-all duration-200">
-                        <img 
-                          alt="User Profile" 
-                          src={user.photoUrl} 
+                        <img
+                          alt="User Profile"
+                          src={user.photoUrl}
                           className="h-full w-full object-cover"
                         />
                       </div>
@@ -102,8 +106,12 @@ const Navbar = () => {
                       <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-xl shadow-2xl bg-gray-800 border border-gray-700 z-50">
                         <div className="py-2">
                           <div className="px-4 py-3 border-b border-gray-700">
-                            <p className="text-sm text-gray-300">Signed in as</p>
-                            <p className="text-sm font-medium text-white truncate">{user.firstName}</p>
+                            <p className="text-sm text-gray-300">
+                              Signed in as
+                            </p>
+                            <p className="text-sm font-medium text-white truncate">
+                              {user.firstName}
+                            </p>
                           </div>
                           <Link
                             to="/profile"
@@ -151,7 +159,10 @@ const Navbar = () => {
               <div className="md:hidden flex items-center space-x-3">
                 {/* Mobile Welcome - Very compact */}
                 <div className="hidden sm:flex text-gray-300 text-xs">
-                  Hi, <span className="text-purple-300 ml-1">{user.firstName.split(' ')[0]}</span>
+                  Hi,{" "}
+                  <span className="text-purple-300 ml-1">
+                    {user.firstName.split(" ")[0]}
+                  </span>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -160,9 +171,9 @@ const Navbar = () => {
                   className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500 transition-all duration-200"
                 >
                   <div className="h-8 w-8 rounded-full overflow-hidden border-2 border-transparent hover:border-purple-400 transition-all duration-200">
-                    <img 
-                      alt="User Profile" 
-                      src={user.photoUrl} 
+                    <img
+                      alt="User Profile"
+                      src={user.photoUrl}
                       className="h-full w-full object-cover"
                     />
                   </div>
@@ -175,9 +186,12 @@ const Navbar = () => {
                   <div className="px-3 py-3 space-y-1">
                     {/* Mobile Welcome */}
                     <div className="sm:hidden px-3 py-2 text-gray-300 text-sm border-b border-gray-700 mb-2">
-                      👋 Welcome, <span className="text-purple-300 font-medium">{user.firstName}</span>
+                      👋 Welcome,{" "}
+                      <span className="text-purple-300 font-medium">
+                        {user.firstName}
+                      </span>
                     </div>
-                    
+
                     <Link
                       to="/profile"
                       className="flex items-center justify-between px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-200"

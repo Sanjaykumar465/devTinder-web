@@ -70,7 +70,7 @@ const Connections = () => {
               </svg>
             </div>
           </div>
-          
+
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
             No Connections Yet
           </h1>
@@ -82,8 +82,18 @@ const Connections = () => {
             className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-600 hover:to-fuchsia-600 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-sm sm:text-base transform hover:scale-105"
           >
             <span>Discover People</span>
-            <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <svg
+              className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
             </svg>
           </Link>
         </div>
@@ -121,7 +131,8 @@ const Connections = () => {
         {/* Responsive Grid Layout */}
         <div className="grid gap-4 sm:gap-6 lg:gap-8">
           {connections.map((connection) => {
-            const { _id, firstName, lastName, photoUrl, age, gender, about } = connection;
+            const { _id, firstName, lastName, photoUrl, age, gender, about } =
+              connection;
 
             return (
               <div
@@ -139,17 +150,19 @@ const Connections = () => {
                           src={photoUrl}
                           alt={`${firstName} ${lastName}`}
                           onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.nextElementSibling.style.display = 'flex';
+                            e.target.style.display = "none";
+                            e.target.nextElementSibling.style.display = "flex";
                           }}
                         />
                       ) : null}
-                      <div 
-                        className={`${photoUrl ? 'hidden' : 'flex'} relative h-16 w-16 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400 items-center justify-center text-white font-bold text-lg border-3 border-white shadow-lg`}
-                        style={{ display: photoUrl ? 'none' : 'flex' }}
+                      <div
+                        className={`${
+                          photoUrl ? "hidden" : "flex"
+                        } relative h-16 w-16 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400 items-center justify-center text-white font-bold text-lg border-3 border-white shadow-lg`}
+                        style={{ display: photoUrl ? "none" : "flex" }}
                       >
-                        {firstName ? firstName.charAt(0).toUpperCase() : '?'}
-                        {lastName ? lastName.charAt(0).toUpperCase() : ''}
+                        {firstName ? firstName.charAt(0).toUpperCase() : "?"}
+                        {lastName ? lastName.charAt(0).toUpperCase() : ""}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -163,7 +176,9 @@ const Connections = () => {
                           </span>
                         )}
                         {age && (
-                          <span className="text-xs text-gray-500">{age} yrs</span>
+                          <span className="text-xs text-gray-500">
+                            {age} yrs
+                          </span>
                         )}
                       </div>
                     </div>
@@ -205,20 +220,22 @@ const Connections = () => {
                           src={photoUrl}
                           alt={`${firstName} ${lastName}`}
                           onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.nextElementSibling.style.display = 'flex';
+                            e.target.style.display = "none";
+                            e.target.nextElementSibling.style.display = "flex";
                           }}
                         />
                       ) : null}
-                      <div 
-                        className={`${photoUrl ? 'hidden' : 'flex'} relative h-20 w-20 lg:h-24 lg:w-24 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400 items-center justify-center text-white font-bold text-xl lg:text-2xl border-4 border-white shadow-xl`}
-                        style={{ display: photoUrl ? 'none' : 'flex' }}
+                      <div
+                        className={`${
+                          photoUrl ? "hidden" : "flex"
+                        } relative h-20 w-20 lg:h-24 lg:w-24 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400 items-center justify-center text-white font-bold text-xl lg:text-2xl border-4 border-white shadow-xl`}
+                        style={{ display: photoUrl ? "none" : "flex" }}
                       >
-                        {firstName ? firstName.charAt(0).toUpperCase() : '?'}
-                        {lastName ? lastName.charAt(0).toUpperCase() : ''}
+                        {firstName ? firstName.charAt(0).toUpperCase() : "?"}
+                        {lastName ? lastName.charAt(0).toUpperCase() : ""}
                       </div>
                     </div>
-                    
+
                     <div className="flex-1 min-w-0">
                       <div className="flex items-baseline space-x-3 mb-2">
                         <h2 className="text-xl lg:text-2xl font-bold text-gray-900">
@@ -241,7 +258,7 @@ const Connections = () => {
                         </p>
                       )}
                     </div>
-                    
+
                     <div className="flex-shrink-0">
                       <Link to={`/chat/${_id}`}>
                         <button className="group/btn flex items-center px-5 lg:px-6 py-3 lg:py-4 bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-600 hover:to-fuchsia-600 text-white rounded-xl lg:rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-semibold text-sm lg:text-base">

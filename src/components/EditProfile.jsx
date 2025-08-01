@@ -59,11 +59,9 @@ const EditProfile = ({ user = {} }) => {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.patch(
-        `${BASE_URL}/profile/edit`,
-        formData,
-        { withCredentials: true }
-      );
+      const res = await axios.patch(`${BASE_URL}/profile/edit`, formData, {
+        withCredentials: true,
+      });
       dispatch(addUser(res.data.data));
       setSuccess(true);
       setTimeout(() => setSuccess(false), 3000);
@@ -108,8 +106,17 @@ const EditProfile = ({ user = {} }) => {
           <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-emerald-900/80 backdrop-blur-sm text-emerald-200 rounded-xl sm:rounded-2xl border border-emerald-700/50 shadow-lg">
             <p className="flex items-center justify-center gap-2 text-sm sm:text-base font-medium">
               <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 bg-emerald-500 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-3 w-3 sm:h-4 sm:w-4 text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               Profile updated successfully!
@@ -122,8 +129,17 @@ const EditProfile = ({ user = {} }) => {
           <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-900/80 backdrop-blur-sm text-red-200 rounded-xl sm:rounded-2xl border border-red-700/50 shadow-lg">
             <p className="flex items-center justify-center gap-2 text-sm sm:text-base font-medium">
               <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 bg-red-500 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-3 w-3 sm:h-4 sm:w-4 text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               {error}
@@ -189,7 +205,7 @@ const EditProfile = ({ user = {} }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
-            
+
             {/* Enhanced Profile Preview */}
             {formData.photoUrl && (
               <div className="mt-4 sm:mt-6 flex justify-center">
@@ -202,17 +218,23 @@ const EditProfile = ({ user = {} }) => {
                       alt="Profile preview"
                       className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full object-cover border-4 border-white shadow-2xl z-10 group-hover/avatar:scale-110 transition-transform duration-300"
                       onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextElementSibling.style.display = 'flex';
+                        e.target.style.display = "none";
+                        e.target.nextElementSibling.style.display = "flex";
                       }}
                     />
                   ) : null}
-                  <div 
-                    className={`${formData.photoUrl ? 'hidden' : 'flex'} relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400 items-center justify-center text-white font-bold text-xl sm:text-2xl lg:text-3xl border-4 border-white shadow-2xl z-10`}
-                    style={{ display: formData.photoUrl ? 'none' : 'flex' }}
+                  <div
+                    className={`${
+                      formData.photoUrl ? "hidden" : "flex"
+                    } relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400 items-center justify-center text-white font-bold text-xl sm:text-2xl lg:text-3xl border-4 border-white shadow-2xl z-10`}
+                    style={{ display: formData.photoUrl ? "none" : "flex" }}
                   >
-                    {formData.firstName ? formData.firstName.charAt(0).toUpperCase() : '?'}
-                    {formData.lastName ? formData.lastName.charAt(0).toUpperCase() : ''}
+                    {formData.firstName
+                      ? formData.firstName.charAt(0).toUpperCase()
+                      : "?"}
+                    {formData.lastName
+                      ? formData.lastName.charAt(0).toUpperCase()
+                      : ""}
                   </div>
                 </div>
               </div>
@@ -251,14 +273,32 @@ const EditProfile = ({ user = {} }) => {
                   onChange={handleChange}
                   className="w-full bg-slate-700/60 backdrop-blur-sm px-3 sm:px-4 py-2.5 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl border border-slate-600 focus:ring-2 focus:ring-violet-500 focus:border-transparent text-white appearance-none text-sm sm:text-base transition-all duration-300 hover:bg-slate-700/80 cursor-pointer"
                 >
-                  <option value="" className="bg-slate-800 text-slate-300">Select gender</option>
-                  <option value="male" className="bg-slate-800 text-white">male</option>
-                  <option value="female" className="bg-slate-800 text-white">female</option>
-                  <option value="other" className="bg-slate-800 text-white">Other</option>
+                  <option value="" className="bg-slate-800 text-slate-300">
+                    Select gender
+                  </option>
+                  <option value="male" className="bg-slate-800 text-white">
+                    male
+                  </option>
+                  <option value="female" className="bg-slate-800 text-white">
+                    female
+                  </option>
+                  <option value="other" className="bg-slate-800 text-white">
+                    Other
+                  </option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <svg
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -295,7 +335,9 @@ const EditProfile = ({ user = {} }) => {
                   type="text"
                   value={newSkill}
                   onChange={(e) => setNewSkill(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddSkill())}
+                  onKeyPress={(e) =>
+                    e.key === "Enter" && (e.preventDefault(), handleAddSkill())
+                  }
                   className="w-full bg-slate-700/60 backdrop-blur-sm px-3 sm:px-4 py-2.5 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl border border-slate-600 focus:ring-2 focus:ring-violet-500 focus:border-transparent text-white placeholder-slate-400 text-sm sm:text-base transition-all duration-300 hover:bg-slate-700/80"
                   placeholder="Add a skill (press Enter)"
                 />
@@ -310,7 +352,7 @@ const EditProfile = ({ user = {} }) => {
                 <span className="sm:hidden">Add</span>
               </button>
             </div>
-            
+
             {/* Skills Display */}
             <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3">
               {formData.skills.map((skill, index) => (
@@ -323,8 +365,18 @@ const EditProfile = ({ user = {} }) => {
                       onClick={() => handleRemoveSkill(skill)}
                       className="ml-1.5 sm:ml-2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-red-400 focus:outline-none transition-colors duration-200 flex items-center justify-center rounded-full hover:bg-red-500/20"
                     >
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      <svg
+                        className="w-3 h-3 sm:w-4 sm:h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
                       </svg>
                     </button>
                   </span>
@@ -341,8 +393,17 @@ const EditProfile = ({ user = {} }) => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative flex items-center gap-2 sm:gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 group-hover:rotate-12 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 group-hover:rotate-12 transition-transform duration-300"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
                 </svg>
                 <span>Save Changes</span>
               </div>
@@ -352,8 +413,9 @@ const EditProfile = ({ user = {} }) => {
       </div>
 
       {/* CSS-in-JS styles */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
           @keyframes blob {
             0% { transform: translate(0px, 0px) scale(1); }
             33% { transform: translate(30px, -50px) scale(1.1); }
@@ -381,8 +443,9 @@ const EditProfile = ({ user = {} }) => {
           .animation-delay-5000 {
             animation-delay: 5s;
           }
-        `
-      }} />
+        `,
+        }}
+      />
     </div>
   );
 };

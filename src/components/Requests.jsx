@@ -72,8 +72,8 @@ const Requests = () => {
               No Requests Found
             </h1>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-              You don't have any connection requests at the moment. 
-              When someone wants to connect with you, their requests will appear here.
+              You don't have any connection requests at the moment. When someone
+              wants to connect with you, their requests will appear here.
             </p>
           </div>
         </div>
@@ -96,7 +96,8 @@ const Requests = () => {
             Review and respond to developers who want to connect with you
           </p>
           <div className="mt-4 text-sm text-purple-300">
-            {requests.length} {requests.length === 1 ? 'request' : 'requests'} pending
+            {requests.length} {requests.length === 1 ? "request" : "requests"}{" "}
+            pending
           </div>
         </div>
 
@@ -113,7 +114,6 @@ const Requests = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                  
                   {/* Profile Image - Clickable */}
                   <div className="flex-shrink-0">
                     <div className="relative">
@@ -121,7 +121,9 @@ const Requests = () => {
                         alt={`${firstName} ${lastName}`}
                         className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full object-cover border-4 border-gray-700 group-hover:border-purple-500/50 transition-all duration-300 cursor-pointer hover:scale-105"
                         src={photoUrl}
-                        onClick={() => openProfile(request.fromUserId, request._id)}
+                        onClick={() =>
+                          openProfile(request.fromUserId, request._id)
+                        }
                       />
                       <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-gray-900 flex items-center justify-center">
                         <span className="text-xs">✨</span>
@@ -134,27 +136,29 @@ const Requests = () => {
                   </div>
 
                   {/* User Information - Clickable */}
-                  <div 
+                  <div
                     className="flex-1 text-center sm:text-left min-w-0 cursor-pointer"
                     onClick={() => openProfile(request.fromUserId, request._id)}
                   >
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 truncate hover:text-purple-300 transition-colors duration-200">
                       {firstName} {lastName}
                     </h2>
-                    
+
                     {age && gender && (
                       <div className="flex items-center justify-center sm:justify-start text-gray-400 mb-2 text-sm sm:text-base">
                         <span className="mr-2">👤</span>
-                        <span>{age}, {gender}</span>
+                        <span>
+                          {age}, {gender}
+                        </span>
                       </div>
                     )}
-                    
+
                     {about && (
                       <p className="text-gray-300 text-sm sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none hover:text-gray-200 transition-colors duration-200">
                         {about}
                       </p>
                     )}
-                    
+
                     <div className="mt-2 text-xs text-purple-400 opacity-70">
                       Click to view full profile
                     </div>
@@ -171,7 +175,7 @@ const Requests = () => {
                         Reject
                       </span>
                     </button>
-                    
+
                     <button
                       className="px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium rounded-xl transition-all duration-200 transform hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-green-500/25 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-sm sm:text-base"
                       onClick={() => reviewRequest("accepted", request._id)}
@@ -200,14 +204,17 @@ const Requests = () => {
         <div className="mt-12 text-center">
           <div className="inline-flex items-center text-gray-500 text-xs sm:text-sm">
             <span className="mr-2">💡</span>
-            <span>Tip: Click on profiles to view more details before accepting connections</span>
+            <span>
+              Tip: Click on profiles to view more details before accepting
+              connections
+            </span>
           </div>
         </div>
       </div>
 
       {/* Profile Modal */}
       {isModalOpen && selectedProfile && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4"
           onClick={handleModalBackdropClick}
         >
@@ -219,7 +226,9 @@ const Requests = () => {
                 onClick={closeModal}
                 className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors duration-200"
               >
-                <span className="text-gray-400 hover:text-white text-xl">✕</span>
+                <span className="text-gray-400 hover:text-white text-xl">
+                  ✕
+                </span>
               </button>
             </div>
 
@@ -243,7 +252,9 @@ const Requests = () => {
                 {selectedProfile.age && selectedProfile.gender && (
                   <div className="flex items-center justify-center text-gray-400 mb-4">
                     <span className="mr-2">👤</span>
-                    <span className="text-lg">{selectedProfile.age}, {selectedProfile.gender}</span>
+                    <span className="text-lg">
+                      {selectedProfile.age}, {selectedProfile.gender}
+                    </span>
                   </div>
                 )}
               </div>
@@ -285,17 +296,21 @@ const Requests = () => {
               <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-6 border-t border-gray-700">
                 <button
                   className="flex-1 px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-xl transition-all duration-200 transform hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-red-500/25"
-                  onClick={() => reviewRequest("rejected", selectedProfile.requestId)}
+                  onClick={() =>
+                    reviewRequest("rejected", selectedProfile.requestId)
+                  }
                 >
                   <span className="flex items-center justify-center">
                     <span className="mr-2">❌</span>
                     Reject Request
                   </span>
                 </button>
-                
+
                 <button
                   className="flex-1 px-6 py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium rounded-xl transition-all duration-200 transform hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-green-500/25"
-                  onClick={() => reviewRequest("accepted", selectedProfile.requestId)}
+                  onClick={() =>
+                    reviewRequest("accepted", selectedProfile.requestId)
+                  }
                 >
                   <span className="flex items-center justify-center">
                     <span className="mr-2">✅</span>

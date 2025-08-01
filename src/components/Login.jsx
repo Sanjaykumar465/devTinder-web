@@ -51,7 +51,10 @@ const Login = () => {
           </div>
 
           {/* Form with enhanced spacing and responsiveness */}
-          <form onSubmit={handleLogin} className="p-6 sm:p-8 lg:p-10 space-y-5 sm:space-y-6">
+          <form
+            onSubmit={handleLogin}
+            className="p-6 sm:p-8 lg:p-10 space-y-5 sm:space-y-6"
+          >
             <div className="space-y-4 sm:space-y-5">
               <div>
                 <label
@@ -120,8 +123,16 @@ const Login = () => {
             {error && (
               <div className="p-3 sm:p-4 bg-red-900/50 text-red-200 rounded-lg sm:rounded-xl text-sm sm:text-base border border-red-800/50 backdrop-blur-sm animate-shake">
                 <div className="flex items-center">
-                  <svg className="h-4 w-4 sm:h-5 sm:w-5 text-red-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  <svg
+                    className="h-4 w-4 sm:h-5 sm:w-5 text-red-400 mr-2 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   {error}
                 </div>
@@ -161,8 +172,18 @@ const Login = () => {
               >
                 <span className="inline-flex items-center">
                   Sign in
-                  <svg className="ml-2 h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <svg
+                    className="ml-2 h-4 w-4 sm:h-5 sm:w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
                   </svg>
                 </span>
               </button>
@@ -172,7 +193,7 @@ const Login = () => {
           <div className="px-6 sm:px-8 lg:px-10 pb-6 sm:pb-8 text-center border-t border-gray-800/50 pt-6">
             <p className="text-sm sm:text-base text-gray-400">
               Don't have an account?{" "}
-              <Link 
+              <Link
                 to="/signup"
                 className="font-medium text-purple-400 hover:text-purple-300 transition-colors duration-200 hover:underline"
               >

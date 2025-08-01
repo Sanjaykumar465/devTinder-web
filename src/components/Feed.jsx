@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../Utils/feedSlice";
@@ -32,7 +31,8 @@ const Feed = () => {
     }
   }, [feed]);
 
-  if (!feed) return <p className="text-center mt-10 text-gray-500">Loading...</p>;
+  if (!feed)
+    return <p className="text-center mt-10 text-gray-500">Loading...</p>;
 
   if (feed.length <= 0) {
     return <h1 className="flex justify-center my-10">No new users found!</h1>;
